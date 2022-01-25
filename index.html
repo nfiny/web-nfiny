@@ -750,7 +750,8 @@
 
                     <!-- Privacy Form -->
                     <div class="form-container">
-                        <form id="privacyForm" data-toggle="validator" data-focus="false">
+                        <p>This site use reCAPTCHA to protect against spammers. Find out more on the <a target="_blank" href="https://support.google.com/recaptcha/?hl=en">Google Support page</a>.</p>
+                        <form action="https://hbvhawzct9.execute-api.ap-southeast-2.amazonaws.com/dev/nfiny/contactus" method="post" data-toggle="validator" data-focus="false">
                             <div class="form-group">
                                 <input type="text" class="form-control-input" id="pname" required>
                                 <label class="label-control" for="pname">Name</label>
@@ -765,10 +766,10 @@
                                 <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group checkbox p-small">
+                            <!-- <div class="form-group checkbox p-small">
                                 <input type="checkbox" id="pterms" value="Agreed-to-Terms" required>I have read and agree to Nfiny's <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
                                 <div class="help-block with-errors"></div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <button type="submit" class="btn-solid-reg popup-with-move-anim">SUBMIT</button>
                             </div>
