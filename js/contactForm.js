@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
     $('form.contactForm').submit(function() {
       var action = $(this).attr('action');
       var str = $(this).serialize();
-        alert(str)
+
       $.ajax({
         type: "POST",
         url: action,
@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
             alert('success');
         },
         error: function(msg) {
-            alert('error');
+            alert('Send contact form failed cos: ' + msg);
         }
       });
       return false;
