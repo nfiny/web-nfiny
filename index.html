@@ -751,14 +751,14 @@
                     <!-- Privacy Form -->
                     <div class="form-container">
                         <p>This site use reCAPTCHA to protect against spammers. Find out more on the <a target="_blank" href="https://support.google.com/recaptcha/?hl=en">Google Support page</a>.</p>
-                        <form action="https://hbvhawzct9.execute-api.ap-southeast-2.amazonaws.com/dev/nfiny/contactus" method="post" data-toggle="validator" data-focus="false">
+                        <form action="https://hbvhawzct9.execute-api.ap-southeast-2.amazonaws.com/dev/nfiny/contactus" class="contactForm" method="post" data-toggle="validator" data-focus="false" role="form">
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="pname" required>
+                                <input type="text" name="name" class="form-control-input" id="pname" required>
                                 <label class="label-control" for="pname">Name</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control-input" id="pemail" required>
+                                <input type="email" name="email" class="form-control-input" id="pemail" required>
                                 <label class="label-control" for="pemail">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -771,7 +771,8 @@
                                 <div class="help-block with-errors"></div>
                             </div> -->
                             <div class="form-group">
-                                <button type="submit" class="btn-solid-reg popup-with-move-anim">SUBMIT</button>
+                                <button type="submit" class="btn-solid-reg">SUBMIT</button>
+                                <!-- <button type="submit" class="btn-solid-reg popup-with-move-anim">SUBMIT</button> -->
                             </div>
                             <div class="form-message">
                                 <div id="pmsgSubmit" class="h3 text-center hidden"></div>
@@ -899,5 +900,6 @@
     <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="js/contactForm.js"></script> <!-- Custom scripts -->
 </body>
 </html>
