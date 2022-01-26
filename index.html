@@ -14,6 +14,8 @@
       gtag('config', 'G-3W902ZF9M0');
     </script>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Sync is a landing page HTML template built with Bootstrap 4 for presenting mobile apps to the online audience and for getting visitors to become users.">
     <meta name="author" content="Inovatik">
@@ -767,9 +769,11 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn-solid-reg">SUBMIT</button>
+                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LcJ2DweAAAAABAnnETdIkxHRpkI2xck5E7CabxT"></div>
                             </div>
-                            <!-- <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Lc1JzkeAAAAANupzlcXU_Sw46jSCE8a8FW_4pRc"></div> -->
+                            <div class="form-group">
+                                <button type="submit" class="btn-solid-reg" id="submitBtn" hidden>SUBMIT</button>
+                            </div>
                             <div class="form-message">
                                 <div id="pmsgSubmit" class="h3 text-center hidden"></div>
                             </div>
@@ -897,5 +901,12 @@
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
     <script src="js/contactForm.js"></script> <!-- Custom scripts -->
+
+    <!-- captcha  -->
+  <script>
+    function recaptchaCallback() {
+      $('#submitBtn').removeAttr('hidden');
+    };
+  </script>
 </body>
 </html>
