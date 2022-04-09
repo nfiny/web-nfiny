@@ -1,273 +1,353 @@
-/* Template: Sync - Free Mobile App Landing Page HTML Template
-   Author: Inovatik
-   Created: Dec 2019
-   Description: Custom JS file
-*/
-
-
+/**
+ * @author pxdraft
+ * @version 1.0
+ *
+ */
 (function($) {
-    "use strict"; 
-	
-	/* Preloader */
-	$(window).on('load', function() {
-		var preloaderFadeOutTime = 500;
-		function hidePreloader() {
-			var preloader = $('.spinner-wrapper');
-			setTimeout(function() {
-				preloader.fadeOut(preloaderFadeOutTime);
-			}, 500);
-		}
-		hidePreloader();
-	});
+    "use strict";
+    var CRE = {};
+    $.fn.exists = function() {
+        return this.length > 0;
+    };
 
-	
-	/* Navbar Scripts */
-	// jQuery to collapse the navbar on scroll
-    $(window).on('scroll load', function() {
-		if ($(".navbar").offset().top > 60) {
-			$(".fixed-top").addClass("top-nav-collapse");
-		} else {
-			$(".fixed-top").removeClass("top-nav-collapse");
-		}
-    });
+    /* ---------------------------------------------- /*
+     * Pre load
+    /* ---------------------------------------------- */
+    CRE.PreLoad = function() {
+        document.getElementById("loading").style.display = "none";
+    }
 
-	// jQuery for page scrolling feature - requires jQuery Easing plugin
-	$(function() {
-		$(document).on('click', 'a.page-scroll', function(event) {
-			var $anchor = $(this);
-			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top
-			}, 600, 'easeInOutExpo');
-			event.preventDefault();
-		});
-	});
-
-    // closes the responsive menu on menu item click
-    $(".navbar-nav li a").on("click", function(event) {
-    if (!$(this).parent().hasClass('dropdown'))
-        $(".navbar-collapse").collapse('hide');
-    });
-
-
-    /* Image Slider - Swiper */
-    var imageSlider = new Swiper('.image-slider', {
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false
-		},
-        loop: false,
-        navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-        spaceBetween: 30,
-        slidesPerView: 5,
-		breakpoints: {
-            // when window is <= 516px
-            516: {
-                slidesPerView: 1,
-                spaceBetween: 10
-            },
-            // when window is <= 767px
-            767: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            },
-            // when window is <= 991px
-            991: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            },
-            // when window is <= 1199px
-            1199: {
-                slidesPerView: 4,
-                spaceBetween: 30
-            },
-        }
-    });
-
-
-    /* Image Lightbox - Magnific Popup */
-	$('.popup-link').magnificPopup({
-		removalDelay: 300,
-		type: 'image',
-		callbacks: {
-			beforeOpen: function() {
-				this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure ' + this.st.el.attr('data-effect'));
-			},
-			beforeClose: function() {
-				$('.mfp-figure').addClass('fadeOut');
-			}
-		},
-		gallery:{
-			enabled:true //enable gallery mode
-		}
-    });
-    
-
-    /* Video Lightbox - Magnific Popup */
-    $('.popup-youtube, .popup-vimeo').magnificPopup({
-        disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false,
-        iframe: {
-            patterns: {
-                youtube: {
-                    index: 'youtube.com/', 
-                    id: function(url) {        
-                        var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
-                        if ( !m || !m[1] ) return null;
-                        return m[1];
-                    },
-                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
-                },
-                vimeo: {
-                    index: 'vimeo.com/', 
-                    id: function(url) {        
-                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
-                        if ( !m || !m[5] ) return null;
-                        return m[5];
-                    },
-                    src: 'https://player.vimeo.com/video/%id%?autoplay=1'
-                }
+    /*--------------------
+      * Menu toogle header
+    ----------------------*/
+    CRE.MenuToggleClass = function() {
+        $('.navbar-toggler').on('click', function() {
+            var toggle = $('.navbar-toggler').is(':visible');
+            if (toggle) {
+                $('header').toggleClass('header-toggle');
             }
-        }
-    });
+        })
+    }
 
-
-    /* Details Lightbox - Magnific Popup */
-	$('.popup-with-move-anim').magnificPopup({
-		type: 'inline',
-		fixedContentPos: false, /* keep it false to avoid html tag shift with margin-right: 17px */
-		fixedBgPos: true,
-		overflowY: 'auto',
-		closeBtnInside: true,
-		preloader: false,
-		midClick: true,
-		removalDelay: 300,
-		mainClass: 'my-mfp-slide-bottom'
-    });
-    
-
-    /* Counter - CountTo */
-	var a = 0;
-	$(window).scroll(function() {
-		if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors	
-			var oTop = $('#counter').offset().top - window.innerHeight;
-			if (a == 0 && $(window).scrollTop() > oTop) {
-			$('.counter-value').each(function() {
-				var $this = $(this),
-				countTo = $this.attr('data-count');
-				$({
-				countNum: $this.text()
-				}).animate({
-					countNum: countTo
-				},
-				{
-					duration: 2000,
-					easing: 'swing',
-					step: function() {
-					$this.text(Math.floor(this.countNum));
-					},
-					complete: function() {
-					$this.text(this.countNum);
-					//alert('finished');
-					}
-				});
-			});
-			a = 1;
-			}
-		}
-    });
-    
-    
-    /* Move Form Fields Label When User Types */
-    // for input and textarea fields
-    $("input, textarea").keyup(function(){
-		if ($(this).val() != '') {
-			$(this).addClass('notEmpty');
-		} else {
-			$(this).removeClass('notEmpty');
-		}
-    });
-
-
-    /* Privacy Form */
-    $("#privacyForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            pformError();
-            psubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            psubmitForm();
-        }
-    });
-
-    function psubmitForm() {
-        // initiate variables with form content
-		var name = $("#pname").val();
-		var email = $("#pemail").val();
-        var select = $("#pselect").val();
-        var terms = $("#pterms").val();
+    /* ---------------------------------------------- /*
+     * Header Fixed
+    /* ---------------------------------------------- */
+    CRE.HeaderFixd = function() {
+        var HscrollTop = $(window).scrollTop();
+        var HHeight = $('.header-height').outerHeight()
+        var HHeightTop = $('.header-top').outerHeight()
         
-        $.ajax({
-            type: "POST",
-            url: "php/privacyform-process.php",
-            data: "name=" + name + "&email=" + email + "&select=" + select + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    pformSuccess();
-                } else {
-                    pformError();
-                    psubmitMSG(false, text);
+        if (HscrollTop >= 80) {
+            $(".navbar-dark").addClass("navbar-light");
+            $(".navbar-dark").addClass("navbar-dark-top");
+            $(".navbar-dark-top").removeClass("navbar-dark");
+            $(".header-main").addClass("fixed-header");
+            $('.header-main').css("top", - HHeightTop);
+        } else {
+            $(".navbar-dark-top").removeClass("navbar-light");
+            $(".navbar-dark-top").addClass("navbar-dark");
+            $(".navbar-dark").removeClass("navbar-dark-top");
+            $(".header-main").removeClass("fixed-header");
+            $('.header-main').css("top", 0);
+        }
+    }
+
+
+    /* ---------------------------------------------- /*
+     * Header height
+    /* ---------------------------------------------- */
+    CRE.HeaderHeight = function() {
+        var HHeight = $('.header-height').outerHeight()
+        var HHeightTop = $('.header-top').outerHeight()
+        $('.header-height-bar').css("min-height", HHeight);
+    }
+
+    /* ---------------------------------------------- /*
+     * Mega Menu
+    /* ---------------------------------------------- */
+
+    CRE.MegaMenu = function() {
+        var mDropdown = $(".px-dropdown-toggle") 
+        mDropdown.on("click", function() {
+            $(this).parent().toggleClass("open-menu-parent");
+            $(this).next('.dropdown-menu').toggleClass("show");
+            $(this).toggleClass("open");
+        });
+    }
+
+    /*--------------------
+    * Counter
+    ----------------------*/
+    CRE.Counter = function() {
+        //var counter = jQuery(".counter");
+        var $counter = $('.counter');
+        if ($counter.length > 0) {
+            $counter.each(function() {
+                var $elem = $(this);
+                $elem.appear(function() {
+                    $elem.find('.count').countTo({
+                        speed: 2000,
+                        refreshInterval: 10
+                    });
+                });
+            });
+        }
+    }
+
+    /*--------------------
+    * Typed
+    ----------------------*/
+    CRE.typedbox = function() {
+        var typedjs = $('.typed');
+        if (typedjs.length > 0) {
+            typedjs.each(function() {
+                var $this = $(this);
+                $this.typed({
+                    strings: $this.attr('data-elements').split(','),
+                    typeSpeed: 150, // typing speed
+                    backDelay: 500 // pause before backspacing
+                });
+            });
+        }
+    }
+
+    /*--------------------
+    * Owl Corousel
+    ----------------------*/
+    CRE.Owl = function() {
+        var owlslider = $("div.owl-carousel");
+        if (owlslider.length > 0) {
+            owlslider.each(function() {
+                var $this = $(this),
+                    $items = ($this.data('items')) ? $this.data('items') : 1,
+                    $loop = ($this.attr('data-loop')) ? $this.data('loop') : true,
+                    $navdots = ($this.data('nav-dots')) ? $this.data('nav-dots') : false,
+                    $navarrow = ($this.data('nav-arrow')) ? $this.data('nav-arrow') : false,
+                    $autoplay = ($this.attr('data-autoplay')) ? $this.data('autoplay') : true,
+                    $autospeed = ($this.attr('data-autospeed')) ? $this.data('autospeed') : 5000,
+                    $smartspeed = ($this.attr('data-smartspeed')) ? $this.data('smartspeed') : 1000,
+                    $autohgt = ($this.data('autoheight')) ? $this.data('autoheight') : false,
+                    $CenterSlider = ($this.data('center')) ? $this.data('center') : false,
+                    $stage = ($this.attr('data-stage')) ? $this.data('stage') : 0,
+                    $space = ($this.attr('data-space')) ? $this.data('space') : 30;
+
+                $(this).owlCarousel({
+                    loop: $loop,
+                    items: $items,
+                    responsive: {
+                        0: {
+                            items: $this.data('xs-items') ? $this.data('xs-items') : 1
+                        },
+                        576: {
+                            items: $this.data('sm-items') ? $this.data('sm-items') : 1
+                        },
+                        768: {
+                            items: $this.data('md-items') ? $this.data('md-items') : 1
+                        },
+                        992: {
+                            items: $this.data('lg-items') ? $this.data('lg-items') : 1
+                        },
+                        1200: {
+                            items: $items
+                        }
+                    },
+                    dots: $navdots,
+                    autoplayTimeout: $autospeed,
+                    smartSpeed: $smartspeed,
+                    autoHeight: $autohgt,
+                    center: $CenterSlider,
+                    margin: $space,
+                    stagePadding: $stage,
+                    nav: $navarrow,
+                    navText: ["<i class='bi bi-chevron-left'></i>", "<i class='bi bi-chevron-right'></i>"],
+                    autoplay: $autoplay,
+                    autoplayHoverPause: true
+                });
+            });
+        }
+    }
+
+    /* ---------------------------------------------- /*
+     * lightbox gallery
+    /* ---------------------------------------------- */
+    CRE.Gallery = function() {
+        var GalleryPopup = $('.lightbox-gallery');
+        if (GalleryPopup.length > 0) {
+            $('.lightbox-gallery').magnificPopup({
+                delegate: '.gallery-link',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-fade',
+                fixedContentPos: true,
+                closeBtnInside: false,
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after CRE current image
                 }
+            });
+        }
+        var VideoPopup = $('.video-btn');
+        if (VideoPopup.length > 0) {
+            $('.video-btn').magnificPopup({
+                disableOn: 700,
+                type: 'iframe',
+                mainClass: 'mfp-fade',
+                removalDelay: 160,
+                preloader: false,
+                fixedContentPos: false
+            });
+        }
+    }
+
+    /*--------------------
+    * Masonry
+    ----------------------*/
+    CRE.masonry = function() {
+        var portfolioWork = $('.portfolio-content');
+        if (portfolioWork.length > 0) {
+            $(portfolioWork).isotope({
+                resizable: false,
+                itemSelector: '.grid-item',
+                layoutMode: 'masonry',
+                filter: '*'
+            });
+            //Filtering items on portfolio.html
+            var portfolioFilter = $('.filter li');
+            // filter items on button click
+            $(portfolioFilter).on('click', function() {
+                var filterValue = $(this).attr('data-filter');
+                portfolioWork.isotope({
+                    filter: filterValue
+                });
+            });
+            //Add/remove class on filter list
+            $(portfolioFilter).on('click', function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        }
+    }
+
+    /*--------------------
+        * Progress Bar 
+    ----------------------*/
+    CRE.ProgressBar = function() {
+        $(".skill-bar .skill-bar-in").each(function() {
+            var bottom_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_window = $(window).scrollTop() + $(window).height();
+            var progressWidth = $(this).attr('aria-valuenow') + '%';
+            if (bottom_window > bottom_object) {
+                $(this).css({
+                    width: progressWidth
+                });
             }
         });
-	}
-
-    function pformSuccess() {
-        $("#privacyForm")[0].reset();
-        psubmitMSG(true, "Request Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+    /*-----------------------
+    * SVG
+    -------------------------*/
+    var mySVGsToInject = document.querySelectorAll('.svg_img, .svg_icon');
+    CRE.SVGbx = function() {
+        if (mySVGsToInject.length > 0) {
+            SVGInjector(mySVGsToInject);
+        }
     }
 
-    function pformError() {
-        $("#privacyForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function psubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
+     /*--------------------
+        * pieChart
+    ----------------------*/
+    CRE.pieChart = function () {
+        var $Pie_Chart = $('.pie_chart_in');
+        if ($Pie_Chart.length > 0) {
+            $Pie_Chart.each(function () {
+                var $elem = $(this),
+                    pie_chart_size = $elem.attr('data-size') || "160",
+                    pie_chart_animate = $elem.attr('data-animate') || "2000",
+                    pie_chart_width = $elem.attr('data-width') || "6",
+                    pie_chart_color = $elem.attr('data-color') || "#84ba3f",
+                    pie_chart_track_color = $elem.attr('data-trackcolor') || "rgba(0,0,0,0.10)",
+                    pie_chart_line_Cap = $elem.attr('data-lineCap') || "round",
+                    pie_chart_scale_Color = $elem.attr('data-scaleColor') || "true";
+                $elem.find('span, i').css({
+                    'width': pie_chart_size + 'px',
+                    'height': pie_chart_size + 'px',
+                    'line-height': pie_chart_size + 'px',
+                    'position': 'absolute'
+                });
+                $elem.appear(function () {
+                    $elem.easyPieChart({
+                        size: Number(pie_chart_size),
+                        animate: Number(pie_chart_animate),
+                        trackColor: pie_chart_track_color,
+                        lineWidth: Number(pie_chart_width),
+                        barColor: pie_chart_color,
+                        scaleColor: false,
+                        lineCap: pie_chart_line_Cap,
+                        onStep: function (from, to, percent) {
+                            $elem.find('span.middle').text(Math.round(percent));
+                        }
+                    });
+               });
+            });
         }
-        $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
-    
 
-    /* Back To Top Button */
-    // create the back to top button
-    $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
-    var amountScrolled = 700;
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > amountScrolled) {
-            $('a.back-to-top').fadeIn('500');
-        } else {
-            $('a.back-to-top').fadeOut('500');
+    /*--------------------
+        * Parallax
+    ----------------------*/
+    CRE.parallax = function() {
+        var Parallax = $('.parallax');
+        if (Parallax.length > 0) {
+            jarallax(document.querySelectorAll('.parallax'));
+            /*jarallax(document.querySelectorAll('.parallax-img'), {
+                keepImg: true,
+            });*/
         }
+    }
+
+    /*--------------------
+        * count down
+    ----------------------*/
+
+    CRE.CountTimer = function() {
+        var $count_timer = $('.count-down');
+        var regionalVar = { days: 'Days', day: 'Day', years: 'Years', year: 'Year', hours: 'Hours', hour: 'Hour', minutes: 'Minutes', minute: 'Minute', seconds: 'Seconds', second: 'Second' };
+        if ($count_timer.length > 0) {
+            $('.count-down').countdown({ regional: regionalVar });
+        }
+    }
+
+    // Window on Load
+    $(window).on("load", function() {
+        CRE.masonry(),
+            CRE.PreLoad();
+    });
+    // Document on Ready
+    $(document).ready(function() {
+        CRE.SVGbx(),
+        CRE.HeaderFixd(),
+        CRE.Counter(),
+        CRE.MenuToggleClass(),
+        CRE.Gallery(),
+        CRE.HeaderHeight(),
+        CRE.ProgressBar(),
+        CRE.parallax(),
+        CRE.CountTimer(),
+        CRE.MegaMenu(),
+        CRE.typedbox(),
+        CRE.pieChart(),
+        CRE.Owl();
     });
 
+    // Document on Scrool
+    $(window).scroll(function() {
+        CRE.ProgressBar(),
+            CRE.HeaderFixd();
+    });
 
-	/* Removes Long Focus On Buttons */
-	$(".button, a, button").mouseup(function() {
-		$(this).blur();
-	});
+    // Window on Resize
+    $(window).resize(function() {
+        CRE.HeaderHeight();
+    });
 
 })(jQuery);

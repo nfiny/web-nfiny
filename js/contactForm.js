@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
     "use strict";
 
     //Contact
-    $('form.contactForm').submit(function() {
+    $('form.#contact').submit(function() {
       var action = $(this).attr('action');
       var str = $(this).serialize();
 
