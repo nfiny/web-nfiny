@@ -14,8 +14,32 @@ jQuery(document).ready(function($) {
       $(`div[tab=${id}]`).addClass('active').addClass('show');
       $('div.tab-content div[tab-type="content"]').not(`div[tab=${id}]`).removeClass('active').removeClass('show');
 
-
     });
-  
-  });
+
+    // CAROUSEL
+    $('.owl-carousel').owlCarousel({
+    	items: 1,
+      lazyLoad: true, 
+	    loop:true,
+	    margin:10,
+	    nav:true,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      responsiveClass: true,
+      autoHeight: true,
+      autoplayTimeout: 7000,
+      smartSpeed: 800,
+	  });
+
+    // Carousel Content
+    $('.owl-carousel').on('changed.owl.carousel', function () {
+      setTimeout(function() {
+        var contentId = $('.owl-stage > .active').attr('content-id');
+        $(`#${contentId}`).addClass('active')
+        $('.carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+      }, 100)
+     
+    }); 
+
+});
   

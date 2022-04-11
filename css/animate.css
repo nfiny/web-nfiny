@@ -1,0 +1,121 @@
+animated {
+  position: relative;
+}
+
+.animated-info {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 4px;
+  min-width: 11em;
+  position: relative;
+}
+
+.animated-item {
+  color: #ffc200;
+}
+
+.animated-item {
+  font-size: 38px;
+  line-height: inherit;
+  display: block;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  animation: BottomTotop 10s linear infinite 0s;
+}
+
+.animated-item:nth-child(2n+2) {
+  animation-delay: 2s;
+}
+
+.animated-item:nth-child(3n+3) {
+  animation-delay: 4s;
+}
+
+.animated-item:nth-child(4n+4) {
+  animation-delay: 6s;
+}
+
+.animated-item:nth-child(5n+5) {
+  animation-delay: 8s;
+}
+
+.animated-item:nth-child(6n+6) {
+  animation-delay: 10s;
+}
+
+@keyframes BottomTotop {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 767px) {
+  .animated-info {
+    margin-top: 2px;
+  }
+}
+
+@media (min-width: 1030px) {
+  .animated-info {
+    min-width: 10em;
+  }
+}
+
+@media (max-width: 767px) {
+  .animated-item {
+    font-size: 28px;
+  }
+
+}
+
+@media (max-width: 580px) {
+  .animated-info {
+    min-width: 11em;
+  }
+
+  .animated-info {
+    margin-top: 0px;
+  }
+
+  .animated-item {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .animated-text {
+    margin-top: 0;
+  }
+}
