@@ -30,7 +30,6 @@ jQuery(document).ready(function($) {
         $('#submitBtn').hide()
       },
       error: function(msg) {
-        alert(JSON.stringify(msg));
         $('.submit-error').removeAttr('hidden');
         $('input.submit-loading').hide();
         $('#submitBtn').hide();
