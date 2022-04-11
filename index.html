@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <img class="" src="images/large-consult.png" title="" alt=""
-                            style="display: block; margin: 80px auto; text-align: center; max-width: 190px;" />
+                            style="display: block; margin: 80px auto; text-align: center;" />
                     </div>
                 </div>
             </div>
@@ -476,15 +476,17 @@
                             <div class="col-12">
                                 <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required></textarea>
                             </div>
-                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LcJ2DweAAAAABAnnETdIkxHRpkI2xck5E7CabxT"></div>
+                                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                                <input type="hidden" name="action" value="validate_captcha">
                             <div class="ml-lg-auto col-lg-5 col-12">
+                                <input id='submitBtn' type="submit" class="form-control submit-btn" id="submitBtn" value="Send" >
                                 <input type="submit" class="form-control submit-loading" value="Sending...." disabled hidden>
-                                <input id='submitBtn' type="submit" class="form-control submit-btn" id="submitBtn" value="Send">
                                 <input type="submit" class="form-control submit-success" value="Sent!" disabled hidden>
                                 <input type="submit" class="form-control submit-error" value="Error! Please try again later." disabled hidden>
-                                <div class="form-message">
-                                <div id="pmsgSubmit" class="h3 text-center hidden"></div>
-                                </div>
+                                
+                                <!-- Google Captcha -->
+                                
+                                
                             </div>
                         </div>
                     </form>
@@ -531,12 +533,13 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcpMmUfAAAAACyGT5nkxsPx7Q2aGTsDU2AGQj_M" async defer></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/contactForm.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/lp.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
 </body>
 <!-- end body -->
 
