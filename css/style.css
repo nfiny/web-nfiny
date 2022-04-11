@@ -641,3 +641,8 @@ input.submit-error:hover {
   border-color: #ED4337 !important;
 }
 
+/* Move reCAPTCHA v3 badge in front */
+.grecaptcha-badge {
+  z-index: 999 !important;
+}
+
