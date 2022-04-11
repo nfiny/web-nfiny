@@ -19,20 +19,21 @@ jQuery(document).ready(function($) {
 
     $('input.submit-loading').removeAttr('hidden');
     $('#submitBtn').hide();
-    
+
     $.ajax({
       type: "POST",
       url: action,
       data: str,
       success: function(msg) {
         $('.submit-success').removeAttr('hidden')
+        $('input.submit-loading').hide();
         $('#submitBtn').hide()
       },
       error: function(msg) {
         alert(JSON.stringify(msg));
         $('.submit-error').removeAttr('hidden');
-        $('#submitBtn').hide();
         $('input.submit-loading').hide();
+        $('#submitBtn').hide();
       }
     });
     return false;
