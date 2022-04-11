@@ -19,8 +19,7 @@ jQuery(document).ready(function($) {
 
     $('input.submit-loading').removeAttr('hidden');
     $('#submitBtn').hide();
-
-    alert(str)  
+    
     $.ajax({
       type: "POST",
       url: action,
