@@ -1,0 +1,27 @@
+.homepage-about {
+    font-size: 20px !important;
+}
+
+.homepage-body {
+    margin-top: 40px !important;
+}
+
+.homepage-about-primary {
+    font-weight: 700;
+    color: #8247e5;
+}
+
+.project-stage-testimony {
+    margin-top: 40px !important;
+}
+
+.services-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+.secondary-text {
+    color: white;
+    font-size: 20px;
+}
