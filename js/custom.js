@@ -34,9 +34,17 @@ jQuery(document).ready(function($) {
     // Carousel Content
     $('.owl-carousel').on('changed.owl.carousel', function () {
       setTimeout(function() {
-        var contentId = $('.owl-stage > .active').attr('content-id');
+        var contentId = $('#dapp .owl-stage > .active').attr('content-id');
         $(`#${contentId}`).addClass('active')
-        $('.carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+        $('#dapp .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+
+        var contentId = $('#integrations .owl-stage > .active').attr('content-id');
+        $(`#${contentId}`).addClass('active')
+        $('#integrations .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+
+                var contentId = $('#consulting .owl-stage > .active').attr('content-id');
+        $(`#${contentId}`).addClass('active')
+        $('#consulting .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
       }, 100)
      
     }); 
