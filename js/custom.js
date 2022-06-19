@@ -34,9 +34,9 @@ jQuery(document).ready(function($) {
     // Carousel Content
     $('.owl-carousel').on('changed.owl.carousel', function () {
       setTimeout(function() {
-        var contentId = $('#dapp .owl-stage > .active').attr('content-id');
+        var contentId = $('#apps .owl-stage > .active').attr('content-id');
         $(`#${contentId}`).addClass('active')
-        $('#dapp .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+        $('#apps .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
 
         var contentId = $('#integrations .owl-stage > .active').attr('content-id');
         $(`#${contentId}`).addClass('active')
