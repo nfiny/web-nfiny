@@ -142,8 +142,11 @@
 
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
-                        <img class="" src="images/homepage-logo.png" title="" alt="nfiny nft crypto homepage logo"
+                        <!-- <img class="" src="images/homepage-logo.png" title="" alt="nfiny nft crypto homepage logo"
                             style="display: block; margin: 80px auto; text-align: center;" />
+                             -->
+                        <iframe id="phone-animation" src="phone-animation.html" seamless></iframe>
+
                     </div>
                 </div>
             </div>
@@ -279,7 +282,7 @@
             <div class="container position-relative">
                 <div class="container position-relative">
                     <div class="row" style="justify-content: space-between;">
-                        <div class="col-lg-6 pt-4 pt-lg-0" style="color: #b0c4de">
+                        <div class="col-lg-6 pt-4 pt-lg-0" style="color: lightgoldenrodyellow">
                             <br />
                             <h3 class="secondary-text">✓ Development</h3>
                             <p class="lead">
@@ -368,7 +371,11 @@
                                         <span>Integrations</span>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="#infrastructure" data-bs-toggle="tab" tab="infrastructure">
+                                        <span>Infrastructure</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -676,10 +683,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="owl-item" style="width: 850px; margin-right: 10px;" content-id="cryptocrew">
+                                                <div class="owl-item" style="width: 850px; margin-right: 10px;"
+                                                    content-id="cryptocrew">
                                                     <div class="item">
                                                         <div class="project-info">
-                                                            <img src="./images/portfolio-12.jpg" class="img-fluid" alt="nfiny cryptocrew consulting" />
+                                                            <img src="./images/portfolio-12.jpg" class="img-fluid"
+                                                                alt="nfiny cryptocrew consulting" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -816,6 +825,78 @@
                                     </div>
                                 </div>
                             </div>
+                        
+                        
+                        </div>
+                        <!-- end tab content -->
+                        <!-- start tab content -->
+                        <div tab-type="content" id="infrastructure" tab="infrastructure" class="tab-pane fade in">
+                            <div class="row align-items-center pt-3 pt-lg-10 justify-content-center" style="padding-top: 20px !important;">
+                                <div class="col-lg-6 my-3 ps-lg-8">
+                                    <div class="owl-carousel owl-theme owl-loaded owl-drag">
+                                        <div class="owl-stage-outer">
+                                            <div class="owl-stage"
+                                                style="transform: translate3d(-5160px, 0px, 0px); transition: all 0s ease 0s; width: 9460px;">
+                                                <div class="owl-item" style="width: 850px; margin-right: 10px;" content-id="jobadder">
+                                                    <div class="item">
+                                                        <div class="project-info">
+                                                            <img src="./images/coming-soon.jpg" class="img-fluid"
+                                                                alt="nfiny jobadder consulting" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="owl-item" style="width: 850px; margin-right: 10px;" content-id="audiencerepublic">
+                                                    <div class="item">
+                                                        <div class="project-info">
+                                                            <img src="./images/coming-soon-alt.jpg" class="img-fluid"
+                                                                alt="nfiny audience republic consulting" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-sub-content">
+                                        <div id="jobadder" class="content active">
+                                            <h4>In Developement</h4>
+                                            <br />
+                                            This project is currently in development. Please check back for updates!
+                                            <br />
+                                            <br>
+                                            <strong>Scope of Work</strong>
+                                            <ul>
+                                                <li>Plan & Design Infrastructure Architecture</li>
+                                                <li>Network / Traffic Optimisation</li>
+                                                <li>Cost Optimisation</li>
+                                                <li>Micro-service Designs & Implementations</li>
+                                                <li>CICD</li>
+                                                <li>Security Enhancements</li>
+                                                <li>On-going Support</li>
+                                            </ul>
+                                            <strong>Tech Stack</strong>
+                                            <ul>
+                                                <li>GitHub Actions</li>
+                                                <li>SQL Server</li>
+                                                <li>AWS<ul>
+                                                        <li>Terraform</li>
+                                                        <li>Application Load Balancer</li>
+                                                        <li>EC2</li>
+                                                        <li>RDS</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div id="audiencerepublic" class="content">
+                                            <h4>In Developement</h4>
+                                            <br />
+                                            This project is currently in development. Please check back for updates!
+                                            <br />
+                                            <br>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                            </div>
                         </div>
                         <!-- end tab content -->
                     </div>
@@ -913,6 +994,9 @@
     <script src="js/lp.js"></script>
     <script src="js/owl.carousel.min.js"></script>
 
+    <script>    $(function () {
+            $("#phoneContent").load("phone-animation.html");
+        });</script>
 </body>
 <!-- end body -->
 

@@ -45,6 +45,11 @@ jQuery(document).ready(function($) {
                 var contentId = $('#consulting .owl-stage > .active').attr('content-id');
         $(`#${contentId}`).addClass('active')
         $('#consulting .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+
+                        var contentId = $('#infrastructure .owl-stage > .active').attr('content-id');
+        $(`#${contentId}`).addClass('active')
+        $('#infrastructure .carousel-sub-content > .content').not(`#${contentId}`).removeClass('active')
+
       }, 100)
      
     }); 
