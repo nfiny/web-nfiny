@@ -24,6 +24,9 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/override.css" rel="stylesheet">
 
+    <!-- animation import -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!-- cookie alert -->
     <script type="text/javascript" src="https://cookieconsent.popupsmart.com/src/js/popper.js"></script>
     <script>
@@ -142,10 +145,8 @@
 
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
-                        <!-- <img class="" src="images/homepage-logo.png" title="" alt="nfiny nft crypto homepage logo"
-                            style="display: block; margin: 80px auto; text-align: center;" />
-                             -->
-                        <iframe id="phone-animation" src="phone-animation.html" seamless></iframe>
+                        <lottie-player id="homepage-animation" src="animations/homepage.json" background="transparent"
+                            speed="0.55" style="width: 400px;" loop autoplay></lottie-player>
 
                     </div>
                 </div>
@@ -333,8 +334,9 @@
                                     successful delivery.
                                 </div>
                             </div>
+                            <lottie-player id="rocket-animation" src="animations/rocket.json" background="transparent"
+                                speed="0.65" style="width: 350px; height: auto; margin-top: 36px;" loop autoplay></lottie-player>
                             <br /><br />
-                            <img src="images/path-image.png" />
                         </div>
                     </div>
                 </div>
@@ -825,19 +827,21 @@
                                     </div>
                                 </div>
                             </div>
-                        
-                        
+
+
                         </div>
                         <!-- end tab content -->
                         <!-- start tab content -->
                         <div tab-type="content" id="infrastructure" tab="infrastructure" class="tab-pane fade in">
-                            <div class="row align-items-center pt-3 pt-lg-10 justify-content-center" style="padding-top: 20px !important;">
+                            <div class="row align-items-center pt-3 pt-lg-10 justify-content-center"
+                                style="padding-top: 20px !important;">
                                 <div class="col-lg-6 my-3 ps-lg-8">
                                     <div class="owl-carousel owl-theme owl-loaded owl-drag">
                                         <div class="owl-stage-outer">
                                             <div class="owl-stage"
                                                 style="transform: translate3d(-5160px, 0px, 0px); transition: all 0s ease 0s; width: 9460px;">
-                                                <div class="owl-item" style="width: 850px; margin-right: 10px;" content-id="jobadder">
+                                                <div class="owl-item" style="width: 850px; margin-right: 10px;"
+                                                    content-id="jobadder">
                                                     <div class="item">
                                                         <div class="project-info">
                                                             <img src="./images/coming-soon.jpg" class="img-fluid"
@@ -845,7 +849,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="owl-item" style="width: 850px; margin-right: 10px;" content-id="audiencerepublic">
+                                                <div class="owl-item" style="width: 850px; margin-right: 10px;"
+                                                    content-id="audiencerepublic">
                                                     <div class="item">
                                                         <div class="project-info">
                                                             <img src="./images/coming-soon-alt.jpg" class="img-fluid"
@@ -894,7 +899,7 @@
                                             <br>
                                         </div>
                                     </div>
-                        
+
                                 </div>
                             </div>
                         </div>
