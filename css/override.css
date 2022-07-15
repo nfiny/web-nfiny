@@ -30,8 +30,7 @@
     margin-top: 20px !important;
 }
 
-@media (pointer:none),
-(pointer:coarse) {
+@media  (max-width: 1000px) {
     #homepage-animation {
         display: none !important;
     }
